@@ -1,4 +1,4 @@
-# Database-Analyzer
+# MySQL-Analyzer
 
 Login to your MySQL server:
 
