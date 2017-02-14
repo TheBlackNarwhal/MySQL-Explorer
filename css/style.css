@@ -1,0 +1,417 @@
+html {  
+	height: 100%; 
+	width: 100%; 
+}
+
+body {
+	width: 100%;
+	height: 100%;
+	text-align: center;
+	margin: 0 auto;
+	padding-top: 10px;
+	padding-bottom: 10px;
+	background-image: url("../images/background.png");	
+	display: table;
+}
+
+div {
+    margin: 0 auto;
+	padding: 0px 0px 0px 0px;
+}
+
+h1 {
+	margin: 30px auto 10px auto;
+	font-size: 60px;
+	color: whitesmoke;
+	font-family: srcl;
+}
+
+h2 {
+	text-transform: uppercase;
+	margin: 10px auto 10px auto;
+	padding: 20px 20px 20px 20px;
+	font-size: 40px;
+	color: whitesmoke;
+	font-family: srcl;
+	border-width: 1px 0px 1px 0px;
+	border-color: whitesmoke;
+	border-style: solid;
+}
+
+input {
+	margin: 10px auto 10px auto;
+	margin-left: 6px; 
+	height: 24px;
+	color: whitesmoke;
+	background-color: rgba(0, 0, 0, 0.2);
+	border: 1px solid #bdbdbd;
+	border-radius: 5px;
+	padding: 5px 5px 5px 5px;
+	font-family: srcl;
+}
+
+button {
+	margin: 0px;
+	margin: 5px auto 5px auto;
+	color: whitesmoke;
+	background-color: rgba(0, 0, 0, 0.2);
+	border: 1px solid #bdbdbd;
+	border-radius: 5px;
+	padding: 5px 5px 5px 5px;
+	font-family: srcl;
+	display: block;
+}
+
+hr {
+	margin: 0px;
+	margin: 18px auto 18px auto;
+}
+
+#main {
+    padding-bottom: 50px;
+    display: table-cell;
+    vertical-align: middle; 
+}
+
+#dynamic {
+	margin-top: 50px;
+	margin-left: auto;
+	margin-right: auto;
+	/*margin: 75px auto 10px auto;*/
+}
+
+#dynamic p {
+	font-family: srcl;
+	color: whitesmoke;
+}
+
+#dynamic a {
+	font-family: srcl;
+	color: whitesmoke;
+}
+
+#data, th, td {
+	border-width: 1px;
+	border-style: solid;
+	font-family: srcl;
+	color: whitesmoke;
+	float: center;
+	margin: 10px auto 10px auto;
+	padding: 3px;
+}
+
+#data {
+	border-radius: 5px;
+}
+
+th, td {
+	padding: 6px;
+	margin: 1px;
+}
+
+#logo {
+	padding-top: 50px;
+}
+
+#connect {
+	margin: 29px auto 10px auto;
+	color: whitesmoke;
+	background-color: rgba(0, 0, 0, 0.2);
+	border: 1px solid #bdbdbd;
+	border-radius: 5px;
+	padding: 5px 5px 5px 5px;
+	font-family: srcl;
+}
+
+#nav {
+	margin: 0px auto 40px auto;
+	padding-top: 20px;
+	padding-bottom: 20px;
+	background-color: rgba(160, 160, 160, 0.2);
+}
+
+@font-face {
+    font-family: srcl;
+    src: url('../fonts/sourcelight.otf');
+}
+
+
+/*   4K monitors   */
+
+
+@media(min-height: 2100px) {
+    
+    h1 {
+        font-size: 120px;
+    }
+
+    h2 {
+        font-size: 75px;
+        width: 970px;
+    }
+
+    input {
+        width: 740px;
+        padding-left: 10px;
+        font-size: 170%;
+        height: 60px;
+    }
+
+    button {
+        width: 760px;
+        height: 70px;
+        font-size: 180%;
+    }
+
+    hr {
+        width: 750px;
+    }
+
+    #data, th, td {
+        font-size: 150%;
+    }
+
+    th, td {
+        padding: 12px;
+        margin: 3px;
+    }
+
+    #logo {
+        max-height: 450px;
+    }
+
+    #connect {
+        width: 760px;
+        font-size: 180%;
+    }
+
+    #nav {
+        height: 100px;
+    }
+
+    #dynamic p {
+        font-size: 50px;
+    }
+    
+}
+
+@media(max-height: 1500px) {
+    
+    h1 {
+        font-size: 80px;
+    }
+
+    h2 {
+        font-size: 55px;
+        width: 650px;
+    }
+
+    input {
+        width: 640px;
+        font-size: 140%;
+        height: 50px;
+        padding-left: 10px;
+    }
+
+    button {
+        width: 660px;
+        height: 60px;
+        font-size: 140%;
+    }
+
+    hr {
+        width: 650px;
+    }
+
+    #data, th, td {
+        font-size: 130%;
+    }
+
+    #logo {
+        max-height: 350px;
+    }
+
+    #connect {
+        width: 660px;
+        font-size: 130%;
+    }
+
+    #nav {
+        height: 80px;
+    }
+
+    #dynamic p {
+        font-size: 40px;
+    } 
+}
+
+@media(max-height: 1300px) {
+    
+    h1 {
+        font-size: 70px;
+    }
+
+    h2 {
+        width: 560px;
+    }
+
+    input {
+        width: 540px;
+        font-size: 130%;
+        height: 40px;
+        padding-left: 10px;
+    }
+
+    button {
+        width: 560px;
+        height: 50px;
+        font-size: 130%;
+    }
+
+    hr {
+        width: 550px;
+    }
+
+    #data, th, td {
+        font-size: 120%;
+    }
+
+    #logo {
+        max-height: 250px;
+    }
+
+    #connect {
+        width: 560px;
+    }
+
+    #nav {
+        height: 60px;
+    }
+
+    #dynamic p {
+        font-size: 30px;
+    }
+}
+
+@media(max-height: 1100px) {
+    
+    h1 {
+        font-size: 54px;
+    }
+
+    h2 {
+        font-size: 35px;
+        width: 430px;
+        padding: 15px;
+        margin: -5px auto -22px auto;
+    }
+
+    input {
+        width: 440px;
+        font-size: 110%;
+        height: 30px;
+    }
+
+    button {
+        width: 460px;
+        height: 40px;
+        font-size: 110%;
+    }
+
+    hr {
+        width: 450px;
+    }
+
+    #data, th, td {
+        font-size: 110%;
+    }
+
+    th, td {
+        padding: 6px;
+        margin: 1px;
+    }
+
+    #logo {
+        max-height: 220px;
+    }
+
+    #connect {
+        width: 460px;
+        font-size: 110%;
+    }
+}
+
+@media(max-height: 800px) {
+    
+    h1 {
+        font-size: 40px;
+    }
+
+    h2 {
+        font-size: 25px;
+        padding: 13px;
+        margin: -5px auto -30px auto;
+    }
+
+    input {
+        padding-left: 10px;
+        font-size: 110%;
+        height: 25px;
+    }
+
+    button {
+        height: 35px;
+    }
+
+    #data, th, td {
+        font-size: 100%;
+    }
+
+    #logo {
+        max-height: 160px;
+        margin-bottom: -20px;
+    }
+}
+
+@media(max-height: 650px) {
+    
+    h1 {
+        font-size: 30px;
+    }
+
+    h2 {
+        padding: 10px;
+        margin: -14px auto -38px auto;
+    }
+
+    input {
+        padding-left: 10px;
+        font-size: 100%;
+        height: 20px;
+        margin: 9px;
+    }
+
+    button {
+        height: 30px;
+    }
+
+    hr {
+        width: 450px;
+        margin-top: 10px;
+    }
+
+    #data, th, td {
+        font-size: 90%;
+    }
+
+    #logo {
+        max-height: 140px;
+        margin-bottom: -25px;
+    }
+
+    #connect {
+        font-size: 100%;
+        padding: 0;
+        margin: 0 auto 0 auto;
+    }
+}

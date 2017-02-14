@@ -1,6 +1,6 @@
 function runScript(params) {
 xhr = new XMLHttpRequest();
-xhr.open('POST', 'scripts.php', true);
+xhr.open('POST', 'php/scripts.php', true);
 xhr.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
 xhr.onload = function() {
     if (xhr.readyState === XMLHttpRequest.DONE && xhr.status === 200) {
