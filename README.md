@@ -15,3 +15,14 @@ Select a table:
 Table fields and rows will be presented:
 
 ![Alt text](/ScreenShots/data.png?raw=true "data")
+
+MySQL Explorer can be used on every resolution device.
+From mobile devices, to 4K ultra wide monitors in portrait mode.
+
+iPhone 6:
+
+![Alt text](/ScreenShots/mobile.png?raw=true "mobile")
+
+iPad Air:
+
+![Alt text](/ScreenShots/tablet.png?raw=true "tablet")
