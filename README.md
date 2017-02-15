@@ -21,8 +21,8 @@ From mobile devices, to 4K ultra wide monitors in portrait mode.
 
 iPhone 6:
 
-![Alt text](/ScreenShots/mobile.png?raw=true "mobile")
+<img src="ScreenShots/mobile.png" width="375" height="667">
 
 iPad Air:
 
-![Alt text](/ScreenShots/tablet.png?raw=true "tablet")
+<img src="ScreenShots/tablet.png" width="384" height="512">
