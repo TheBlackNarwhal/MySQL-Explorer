@@ -5,25 +5,25 @@ $func = $_POST["func"];
 $connection;
 
 switch ($func) {
-	case 'login': 
+	case 'login':
 		getDatabases(TRUE);
 		break;
-	case 'load_db': 
+	case 'load_db':
 		load_db(TRUE);
 		break;
-	case 'loadTable': 
+	case 'loadTable':
 		loadTable();
 		break;
-	case 'reloadTable': 
+	case 'reloadTable':
 		load_db(FALSE);
 		break;
-	case 'reload_db': 
+	case 'reload_db':
 		getDatabases(FALSE);
 		break;
 	case 'logout':
 		logout();
 		break;
-	default: echo 'Function Error'; 
+	default: echo 'Function Error';
 	break;
 }
 
@@ -38,8 +38,8 @@ function getSession() {
 }
 
 function login($loginParams) {
-	$connection = @mysqli_connect($loginParams['svr'], $loginParams['name'], $loginParams['psw']) 
-	or die("<p>initial host/db connection problem</p>");
+	$connection = @mysqli_connect($loginParams['svr'], $loginParams['name'], $loginParams['psw'])
+	or die("<p>initial host/db connection problem</p>"."<br/><br/><button type='button' id='nav' onclick='logout()'>Try again</button>"); //button runs logout so user can return to login screen
 
 	if(errorCheck($connection)) {
 		return $connection;
@@ -103,7 +103,7 @@ function load_db($first) {
     if (!$result) {
         echo 'MySQL Error: ' . mysqli_error();
         exit();
-    }   
+    }
 
     while($table = mysqli_fetch_array($result)) { // go through each row that was returned in $result
         echo "<button type='button' onclick='loadTable(&quot;" . $table[0] . "&quot;)'>" . $table[0]  . "</button>";
@@ -133,7 +133,7 @@ function loadTable() {
     $result1 = mysqli_query($connection, $query) or die (mysqli_error($connection));
 
     //iterate over all the rows
-            
+
 	$collumns = 0;
 	$index = 0;
 	$data = array();
@@ -152,18 +152,18 @@ function loadTable() {
 
         foreach($row as $key => $val){  //generate output
             $data[$index] = $val;
-			$index += 1;   
-        }   
+			$index += 1;
+        }
     }
 
 	$subIndex = 0;
 
 	for($i = 0; $i < count($data);) {
 		echo "<tr>";
-		
+
 		for($j = 0; $j < $collumns; $j++) {
 			echo "<td>";
-			
+
 			echo $data[$subIndex];
 			$subIndex += 1;
 			$i++;
@@ -172,7 +172,7 @@ function loadTable() {
 		}
 
 		echo "</tr>";
-		
+
 	}
 
 	echo "</table>";
