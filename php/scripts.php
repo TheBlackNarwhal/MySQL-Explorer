@@ -5,25 +5,28 @@ $func = $_POST["func"];
 $connection;
 
 switch ($func) {
-	case 'login': 
+	case 'login':
 		getDatabases(TRUE);
 		break;
-	case 'load_db': 
+	case 'load_db':
 		load_db(TRUE);
 		break;
-	case 'loadTable': 
+	case 'loadTable':
 		loadTable();
 		break;
-	case 'reloadTable': 
+	case 'reloadTable':
 		load_db(FALSE);
 		break;
-	case 'reload_db': 
+	case 'reload_db':
 		getDatabases(FALSE);
 		break;
 	case 'logout':
 		logout();
 		break;
-	default: echo 'Function Error'; 
+	case 'retry':
+		retry(getSession());
+		break;
+	default: echo 'Function Error';
 	break;
 }
 
@@ -38,8 +41,8 @@ function getSession() {
 }
 
 function login($loginParams) {
-	$connection = @mysqli_connect($loginParams['svr'], $loginParams['name'], $loginParams['psw']) 
-	or die("<p>initial host/db connection problem</p>");
+	$connection = @mysqli_connect($loginParams['svr'], $loginParams['name'], $loginParams['psw'])
+	or die("<p>initial host/db connection problem</p>"."<br/><br/><button type='button' id='nav' onclick='retry()'>Try again</button>"); //button runs logout so user can return to login screen
 
 	if(errorCheck($connection)) {
 		return $connection;
@@ -103,7 +106,7 @@ function load_db($first) {
     if (!$result) {
         echo 'MySQL Error: ' . mysqli_error();
         exit();
-    }   
+    }
 
     while($table = mysqli_fetch_array($result)) { // go through each row that was returned in $result
         echo "<button type='button' onclick='loadTable(&quot;" . $table[0] . "&quot;)'>" . $table[0]  . "</button>";
@@ -133,7 +136,7 @@ function loadTable() {
     $result1 = mysqli_query($connection, $query) or die (mysqli_error($connection));
 
     //iterate over all the rows
-            
+
 	$collumns = 0;
 	$index = 0;
 	$data = array();
@@ -152,18 +155,18 @@ function loadTable() {
 
         foreach($row as $key => $val){  //generate output
             $data[$index] = $val;
-			$index += 1;   
-        }   
+			$index += 1;
+        }
     }
 
 	$subIndex = 0;
 
 	for($i = 0; $i < count($data);) {
 		echo "<tr>";
-		
+
 		for($j = 0; $j < $collumns; $j++) {
 			echo "<td>";
-			
+
 			echo $data[$subIndex];
 			$subIndex += 1;
 			$i++;
@@ -172,7 +175,7 @@ function loadTable() {
 		}
 
 		echo "</tr>";
-		
+
 	}
 
 	echo "</table>";
@@ -184,6 +187,21 @@ function logout() {
         <input type='text' id='srv' placeholder='Server' /> <br/>
         <input type='text' id='name' placeholder='Username' /> <br/>
         <input type='password' id='psw' placeholder='Password' /> <br/>
+
+        <hr>
+
+        <button type='submit' id='connect' >CONNECT</button>
+
+        </form>";
+}
+
+//run this incase user clicks retry button
+function retry($loginParams){
+	echo "<form action='javascript:login();' method='post'>
+
+        <input type='text' id='srv' placeholder='Server' value='".$loginParams['svr']."' /> <br/>
+        <input type='text' id='name' placeholder='Username' value='".$loginParams['name']."' /> <br/>
+        <input type='password' id='psw' placeholder='Password' value='".$loginParams['psw']."' /> <br/>
 
         <hr>
 
