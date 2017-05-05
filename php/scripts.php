@@ -23,6 +23,9 @@ switch ($func) {
 	case 'logout':
 		logout();
 		break;
+	case 'retry':
+		retry(getSession());
+		break;
 	default: echo 'Function Error';
 	break;
 }
@@ -39,7 +42,7 @@ function getSession() {
 
 function login($loginParams) {
 	$connection = @mysqli_connect($loginParams['svr'], $loginParams['name'], $loginParams['psw'])
-	or die("<p>initial host/db connection problem</p>"."<br/><br/><button type='button' id='nav' onclick='logout()'>Try again</button>"); //button runs logout so user can return to login screen
+	or die("<p>initial host/db connection problem</p>"."<br/><br/><button type='button' id='nav' onclick='retry()'>Try again</button>"); //button runs logout so user can return to login screen
 
 	if(errorCheck($connection)) {
 		return $connection;
@@ -184,6 +187,21 @@ function logout() {
         <input type='text' id='srv' placeholder='Server' /> <br/>
         <input type='text' id='name' placeholder='Username' /> <br/>
         <input type='password' id='psw' placeholder='Password' /> <br/>
+
+        <hr>
+
+        <button type='submit' id='connect' >CONNECT</button>
+
+        </form>";
+}
+
+//run this incase user clicks retry button
+function retry($loginParams){
+	echo "<form action='javascript:login();' method='post'>
+
+        <input type='text' id='srv' placeholder='Server' value='".$loginParams['svr']."' /> <br/>
+        <input type='text' id='name' placeholder='Username' value='".$loginParams['name']."' /> <br/>
+        <input type='password' id='psw' placeholder='Password' value='".$loginParams['psw']."' /> <br/>
 
         <hr>
 

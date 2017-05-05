@@ -53,6 +53,12 @@ function logout() {
 	runScript(params);
 }
 
+function retry() {
+  document.getElementById("scope").innerHTML = "LOGIN";
+  var params = "func=retry";
+	runScript(params);
+}
+
 var timeOut;
 function scrollToTop() {
 	if (document.body.scrollTop!=0 || document.documentElement.scrollTop!=0){
